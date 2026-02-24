@@ -56,14 +56,9 @@ nav .nav-right a:hover {
   max-width: 1100px;
   margin: auto;
 }
-
 #home {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
-
 #resume {
   background: white;
 }
@@ -103,12 +98,13 @@ p {
   padding: 160px 80px;
 }
  .intro-left {
-  flex: 1;
+  flex: 2;
 }
 
 .intro-right {
-  width: 260px;     /* 사진 영역 고정 */
-  flex-shrink: 0;   /* 줄어들지 않게 */
+ flex: 1; 
+ width: 260px;     /* 사진 영역 고정 */
+ flex-shrink: 0;   /* 줄어들지 않게 */
 }
 .intro-right img {
   width: 100%;
