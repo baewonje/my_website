@@ -91,14 +91,30 @@ p {
   line-height: 1.6;
   color: #444;
 }
- 
-.intro-right {
-  width: 260px;
+
+ .intro {
+  display: flex;
+  flex-direction: row;        /* 가로 정렬 강제 */
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 160px 80px;
+}
+ .intro-left {
+  flex: 1;
 }
 
+.intro-right {
+  width: 260px;     /* 사진 영역 고정 */
+  flex-shrink: 0;   /* 줄어들지 않게 */
+}
 .intro-right img {
   width: 100%;
   height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
  
 /* ===== CARD ===== */
