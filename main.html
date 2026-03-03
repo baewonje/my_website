@@ -315,6 +315,69 @@ p {
   color: #888;
 }
 
+
+/* ===== SLIDER ===== */
+
+.slider {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slides {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.slide.active {
+  display: block;
+}
+
+.prev, .next {
+  cursor: pointer;
+  background: white;
+  border: none;
+  font-size: 28px;
+  padding: 10px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev { left: -50px; }
+.next { right: -50px; }
+
+.dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #2563eb;
+}
+
 </style>
 </head>
 
@@ -547,14 +610,35 @@ p {
 <section id="portfolio" class="section">
   <h2>Portfolio</h2>
 
-  <div class="card">
-    <p class="highlight">Nuclear Data Analysis Program</p>
-    <p>프로젝트 리딩 및 UI 개선, 성능 최적화</p>
+  <div class="slider">
+    <button class="prev">&#10094;</button>
+
+    <div class="slides">
+      <img src="slide1.PNG" class="slide active">
+      <img src="slide2.PNG" class="slide">
+      <img src="slide3.PNG" class="slide">
+      <img src="slide4.PNG" class="slide">
+      <img src="slide5.PNG" class="slide">
+      <img src="slide6.PNG" class="slide">
+      <img src="slide7.PNG" class="slide">
+      <img src="slide8.PNG" class="slide">
+      <img src="slide9.PNG" class="slide">
+      <img src="slide10.PNG" class="slide">
+      <img src="slide11.PNG" class="slide">
+      <img src="slide12.PNG" class="slide">
+      <img src="slide13.PNG" class="slide">
+      <img src="slide14.PNG" class="slide">
+      <img src="slide15.PNG" class="slide">
+      <img src="slide16.PNG" class="slide">
+    </div>
+
+    <button class="next">&#10095;</button>
   </div>
 
-  <div class="card">
-    <p class="highlight">IP Camera Monitoring System</p>
-    <p>다수 카메라 동시 처리 최적화 및 프레임 드랍 개선</p>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
 </section>
 
@@ -566,5 +650,33 @@ p {
   <p>Email: xzc0824@gmail.com</p>
 </section>
 
+
+<script>
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+let current = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+  current = index;
+}
+
+document.querySelector(".next").addEventListener("click", () => {
+  let next = (current + 1) % slides.length;
+  showSlide(next);
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  let prev = (current - 1 + slides.length) % slides.length;
+  showSlide(prev);
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => showSlide(index));
+});
+</script>
 </body>
 </html>
