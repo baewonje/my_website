@@ -101,19 +101,21 @@ p {
   height: 100vh;
   background: #ffffff;
   padding: 0 80px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
- .intro-left {
-  /* reduce width approximately 30% by lowering flex ratio */
+.intro-left {
   flex: 1;
+  text-align: left;
 }
 
 .intro-right {
- flex: 1; 
- width: 80px;     /* 사진 영역 고정 */
- flex-shrink: 0;   /* 줄어들지 않게 */
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 .intro-right img {
-  width: 100%;
+  width: 100px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.1);
